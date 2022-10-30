@@ -1,0 +1,39 @@
+a <- seq(from=10,by=2,length.out= 10)
+b <- rep(c(1,2,3),each=2,time=3)
+
+#list와 numeric 구분하기   
+x <- list(1,c(2,3),4,5)
+y <- list("a",c(1,2),"b","c")
+z <- list("A","B",c("D",2),"C")
+
+#list와 vector 구분하기.  
+
+
+#append(lst,element)리스트 뒤에 추가됨
+#append(element,lst)리스트 앞에 추가됨  
+z <- append(z,y)
+
+#c()로 리스트 내에서 숫자와 문자열로 결합하면 문자열로 인식
+K <- c("D",2)
+mode(K)
+
+#c내부에 c를 넣어도  인자를 '개별적'으로 인식함 
+p <- c(1,c(7,5),4,5)
+p[3]
+
+
+
+
+
+#연습용  
+
+X <- rnorm(n=10^5, mean=3, sd=2)
+head(X,20)
+#pdf
+plot(density(X),
+     main="Probaility Density Function")
+#cdf
+plot(ecdf(X),
+     main="Cumulative Density Function")
+
+

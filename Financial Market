@@ -1,0 +1,422 @@
+season = c("SPRING","SUMMER")
+season
+
+25 15*5
+x=1
+x**2-3*x+3
+
+25//5
+26/5
+2**3
+1: :10
+1:10
+:10
+:10
+:10#디폴트값 입력이 안됨?
+
+25*3/13
+print(25*3/13, digits = )
+assign("x", c(1,2,3,4,5,6,7))
+
+G7 <- assign(c("USA","JAPAN","UK","FRANCE","GERMANY","ITARLY","CANADA")
+G7
+
+G = c("usa","france")
+a <- matrix(c(1,2,3,4), ncol=2, byrow=T
+C=3
+C=5
+C=8
+A0=1; A1=2
+week <- c("Sum","Mon","Tues"
+,"sun")
+
+nominal.NDI <-  c(649402, 719019)  #Nominal National Disposable Income
+CPI <-  c(76.08, 78.18) #Consumer Price Index
+
+rNDI <- (nominal.NDI/CPI)*100 # real National Disposable Income
+rNDI
+
+
+mat =matrix(c(1,2,3,4),ncol=2)
+mat[2,2]
+55>4
+
+
+#9.6 
+x = c(1,2,3,NA,5)
+y <-  c(2,4,6,8,10)
+x+y  
+
+length(c(1:5))
+
+G7 <- c("USA","JAPAN","UK","FRANCE","GERMANY","ITARLY","CANADA")
+length(G7)
+
+my.mat <-matrix(1:6, ncol=3)
+my.mat
+length(my.mat)
+mode(my.mat)
+class(my.mat)
+
+
+#seq(from, to, by, length.out)
+seq(1,10,0.2)
+seq(5)
+seq(to=10, longth.out=15)
+
+#rep(x, each, tunes, length.out)
+G7 <- c("USA","JAPAN","UK","FRANCE","GERMANY","ITARLY","CANADA")
+
+rep(c(1,2,3), times=3)
+rep(c(1,2,3), each=2)
+rep(G7, each=3, times=2)
+
+CPI <- c(76.08, 78.18, 77.76, 77.67)
+CPI[-c(2,3)]*100
+CPI[CPI>=90]
+CPI >=90
+sum(CPI>=90)
+
+
+#matrix(data, nrow, ncol, byrow(T,F로 디폴트는COL), dimnames, )
+
+mat = matrix(c(1,2,3,4), ncol=2, byrow=F)
+matrix(1:9, nrow=3)
+
+
+#*****rbind, cind  
+
+row1 <- c(1,-1,0)
+row2 <-  c(1,0,2)
+row3 <- c(0,1,-3)
+coef.mat <-rbind(row1,row2,row3)
+coef.mat
+
+# col, row  주의 
+col1 <- c(1,1,0)
+col2 <- c(-1,0,1)
+col3 <- c(0,2,-3)
+coef.mat1 <- cbind(col1,col2,col3)
+coef.mat1
+
+coef.mat1[-3,]
+
+coef.mat[c("row1","row3"),]
+
+#경제자료의 종류와 형태  
+#시계열자료   -*시간의순서
+#***종적(패널)자료, 횡단면+시계열
+#*
+#***시계열 자료 ts()
+ts(data, start, end, frequency)
+
+ts.dat <- 1:12  #(1,12 까지 채워넣음,  2010으로 시작하면, 4마다 끊어서 자동으로 +1 )
+ts1 <- ts(ts.dat, start=2010, frequency=4)
+ts2 <- ts(ts.dat, start=2010, frequency=12)
+ts1;ts2
+
+mts.dat <- matrix(1:12,ncol=2)
+mts.dat
+mts <- ts(mts.dat, end=2012, frequency=1)mts
+
+I_1 <- matrix(c(1,0,0,1),nrow=2)
+I_1
+I_2 <- matrix(rep(0,16),nrow=4)
+diag(I_2) <- c(1,1,1,1)
+I_2
+I_3 <- matrix(rep(1:16),nrow=4)
+diag(I_3) <- matrix(c(1,2,3,4))
+I_3
+I_4 <- matrix(c(1,2,0,3),ncol=2)
+I_5 <- matrix(c(1:4,0,1:3,0,0,1:2,0,0,0,1),nrow=4,byrow=T)
+I_5
+
+s1 <- matrix(c(1,3,5,7,9,11),nrow=2)
+t(s1)
+I_1
+I_2
+I_3
+I_2+I_3
+t(I_2+I_3)
+t(I_2)+t(I_3)
+I_1
+I_2
+t(I_2*I_3)
+k1 <- matrix(3:6,nrow=2,byrow=T)
+sca <-matrix(c(1,2,3,4),nrow=2)
+sca
+k1
+sca%*%k1
+
+#solve(a)  역행렬   
+A <- matrix(3:0,nrow=2, byrow=T)
+A
+solve(A)
+
+B <- matrix(c(3,5,4,2),nrow=2,byrow=T)
+h <- matrix(c(13,8),nrow=2)
+B
+h
+det(B)
+solve(B)%*%h
+#eigen()
+eigen(B)
+
+A <- matrix(c(1,3,5,7,9,11,13,15,17),nrow=3,byrow=T)
+A
+det(A)
+W <- matrix(c(1,2,3,4,5,6,2,4,6),nrow=3)
+X <- matrix(c(1,0,0,0,2,0,0,0,3),nrow=3)
+Y <- matrix(c(6,3,0),nrow=3)
+Z <- matrix(c(2,4,6),ncol=3)
+W+X
+W-X
+W%*%X
+
+
+#1번문제
+# r에서  전처리  OR 엑셀에서 서식 파일 숫자형으로 바꿔서 불러오는 방법 
+
+csv.data <-read.csv(file="c:/Rdata/ch_1.csv",header=F) 
+csv.data <- csv.data[-c(1,3),-c(1:5)]
+rownames(csv.data) <- NULL
+colnames(csv.data) <- NULL
+A <- as.numeric(gsub(",","",csv.data))
+B <- ts(A,frequency = 12,start=c(2000,01))
+min(B)
+max(B)
+mean(B)
+sd(B)
+
+#2번문제 
+DE <- function(P1,P2,Q1,Q2){
+  y <- (Q1-Q2)/(P2-P1)*P1/Q1
+  return(y)
+}
+DE(100,150,1200,2160)
+
+#3번문제 
+W <- matrix(c(1,2,3,4,5,6,2,4,6),nrow=3)
+X <- matrix(c(1,0,0,0,2,0,0,0,3),nrow=3)
+Y <- matrix(c(6,3,0),nrow=3)
+Z <- matrix(c(2,4,6),ncol=3)
+W+X
+W-X
+W%*%X
+X%*%Y
+Y%*%Z
+
+#4번문제  
+
+A <- matrix(c(1,-1,2,0,2,1,-1,3,5),nrow=3)
+sum(diag(A))
+det(A)
+solve(A)
+
+#5번문제  
+
+A <- matrix(c(2,2,2,-1),nrow=2)
+solve(A)
+h <- matrix(c(18,3),nrow=2)
+solve(A)%*%h
+eigen(A)
+
+# ROE = 당기순이익/자본  (자본 단위당 어느정도의 당기순이익을 올리는가 )
+#산포도 $ X축은 roe.it 속 IT변수를 가져옴, y도 마찬가지 
+roe.it <- read.table(file="c:/Rdata/ROE.IT.txt",header=T)
+head(roe.it,n=20)
+plot(x=roe.it$IT,y=roe.it$ROE,xlab="IT",ylab="ROE")
+
+#상관계수 
+#cor함수의 행렬은 대칭행렬이 나올 수 밖에 없음  
+cor(roe.it$ROE, roe.it$IT)
+cor(roe.it)
+
+#회귀모형 
+#단순회귀모형) C=c(Y-T)
+#다중회귀모형) C=a+b(A/P)+c(Y-T)
+# EX의 경우 a= 필수 소비량, 절편 ,함수 외에서주어진 변수 A/P=실질 자산, b는 그에 따른 반응도 
+
+#확률비교
+x <- 1:6
+result <- sample(x,size=5000, replace=T)
+head(result,30)
+result.even <- result[result%%2==0]
+length(result.even)/length(result)
+
+#
+X <- rnorm(n=10^5, mean=3, sd=2)
+head(X,20)
+
+#확률밀도함수(각 값에 확률값)
+plot(density(X),
+     main="Probability Desity Function")
+
+#누적분포함수 (특정한 값 사이에 속하게 될 확률=어느 특정한 값을 넘지 않을 확률 )
+plot(ecdf(X),
+     main="Cumslative Density Function")
+
+#결합확률밀도함수
+x <- 1:10
+y <- x
+fn <- function(x,y) {0.1*exp(-0.1*(x+y))}
+z <- outer(x,y,fn)
+persp(x,y,z,main="Joint PDF of x and y")
+
+#통화량과 물가의 공분산
+file <- read.table(file="c:/Rdata/M1GDPd.txt", header=T,row.names=1)
+colMeans(file) #두 변수의 기댓값
+var(file$M1); var(file$GDP.def) #분산
+cov(file$M1,file$GDP.def) #공분산 
+
+
+
+
+#정규분포 생성하기 
+y <- seq(-5,15,0.01)
+par(mfcol=c(2,1))
+plot(y,dnorm(x,3,1),type="l",
+     main="Same Variance, Different Means")
+lines(y,dnorm(y,7,1))
+plot(y,dnorm(y,5,1), type="l",
+     main="Same Mean, Different Variances")
+lines(y,dnorm(x,5,2))
+
+ 
+x <- c(1,2,3,4,5,6,7,8,9)
+y <- c(5,3,2,3,4,6,10,12,18)
+df_1 <- data.frame(x,y)
+df_1
+
+lms <- lm(y~x, data=df_1)
+summary(lms)
+plot(lm(y~x, data=df_1))
+
+
+
+a <- seq(from=10,by=2,length.out= 10)
+b <- rep(c(1,2,3),each=2,time=3)
+
+#list와 numeric 구분하기   
+x <- list(1,c(2,3),4,5)
+y <- list("a",c(1,2),"b","c")
+z <- list("A","B",c("D",2),"C")
+
+#list와 vector 구분하기.  
+
+
+#append(lst,element)리스트 뒤에 추가됨
+#append(element,lst)리스트 앞에 추가됨  
+z <- append(z,y)
+
+#c()로 리스트 내에서 숫자와 문자열로 결합하면 문자열로 인식
+K <- c("D",2)
+mode(K)
+
+#c내부에 c를 넣어도  인자를 '개별적'으로 인식함 
+p <- c(1,c(7,5),4,5)
+p[3]
+
+
+
+
+
+#연습용  
+
+X <- rnorm(n=10^5, mean=3, sd=2)
+head(X,20)
+#pdf
+plot(density(X),
+     main="Probaility Density Function")
+#cdf
+plot(ecdf(X),
+     main="Cumulative Density Function")
+
+
+
+
+
+
+#예제 7-3  개중요하다.  
+head(roe.it, n=3)
+ls.result <- lsfit(x=roe.it$IT, y=roe.it$ROE)
+ls.print(ls.result)
+
+plot(x=roe.it$IT, y=roe.it$ROE, xlab="IT", ylab="ROE",main="SRM of ROE")
+abline(ls.result)  #abline 표본회귀선 
+
+
+#예제 7-5숙제
+
+Birth.df <- read.table(file="c:/Rdata/Birthrate.txt", header=T, row.names=1)
+head(Birth.df, n=3)
+y <- Birth.df$birth
+x <- Birth.df[,c(2,3,4,5)]
+mls.res <- lsfit(x,y)
+ls.print(mls.res)
+#(y~x 로 안쓰는 이유는  x는 데이터 프레임으로 되어있어서 여러열이 존재함. 즉 따로따로 적어서 +를 해야 리스트스퀘어 가능)
+lm.res <- lm(formula=birth~W.act+edu.spd+cru.div+rGDPgw,data=Birth.df)
+summary(lm.res)
+
+
+
+#최우추정량  
+install.packages("bbmle")
+library(bbmle)
+y <- roe.it$ROE
+x <- roe.it$IT
+n <- length(y)
+fn <- function(b0,b1,sigma) {
+(n/2)*log(sigma^2)+1/(2*sigma^2)*(sum((y-b0-b1*x)^2))
+}
+res <- mle2(fn,start=list(b0=-0.5,b1=0.5,sigma=1))
+summary(res)
+AIC(lm.res)
+BIC(lm.res)
+# 위 결과는 AIS BIS가 1번째가 적합함을 가르키고 있음 
+Birth.df
+y <- Birth.df[,1]
+x <- as.matrix(cbind(1,Birth.df[,-1]))
+fn1 <- function(b0,b1,b2,b3,b4,sigma) {
+  beta <- matrix(c(b0,b1,b2,b3,b4))
+-sum(dnorm(y,mean=x%*%beta,sd=sigma,log=T))}
+res1 <- mle2(fn1, start=list(b0=2,b1=0,b2=0,b3=0,b4=0,sigma=0.1))
+summary(res1)
+AIC(res1)
+BIC(res1)
+
+a <- c(1,0,-1,-1,2,3,2,1,5)
+A <- matrix(a,nrow=3, byrow=T)
+det(A)
+library(Matrix)
+M <- matrix(c(4,2,7,5,3,-3,1,0,2),nrow=3)
+dim(M)
+rankMatrix(M)
+S <- matrix(c(1,2,2,4),ncol=2,byrow=T)
+dim(S)
+rankMatrix(S)
+
+
+###year의 단순회귀모형 
+
+Salary.df <- read.table(file="c:/Rdata/Salary.txt",header=T)
+resl <- lm(salary~year, data=Salary.df)
+summary(resl)
+
+###위 모형에 성별을 넣은 회귀모형(초임비교)  
+res2 <- lm(salary~year+sex, data=Salary.df)
+summary(res2)
+
+#케인즈의 소득추정  
+
+Key.df <- read.table(file="c:/Rdata/Keynes.txt", header=T)
+real.C <- (Key.df$C/Key.df$CPI*100)
+real.Y <- (Key.df$Y/Key.df$CPI*100)
+t.sq <- (1:42)^2
+Key.res <- lm(real.C~real.Y+t.sq)
+summary(Key.res)
+
+#잔차의 히스토그램 
+hist(resid(Key.res))
+
+
